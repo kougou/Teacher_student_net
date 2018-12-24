@@ -5,6 +5,61 @@
 3) Run the Code
 
 
+# Example Output:
+
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+- done.
+Experiment - model version: cnn_distill
+Starting training for 30 epoch(s)
+First, loading the teacher model and computing its outputs...
+- Finished computing teacher outputs after 2128.0 secs..
+Epoch 1/30
+100%|██████████████████████████████████████████████████████████████| 391/391 [02:23<00:00,  3.09it/s, loss=0.993]
+- Train metrics: loss: 1.014 ; accuracy: 0.332
+- Eval metrics : loss: 0.000 ; accuracy: 0.483
+Checkpoint Directory exists! 
+- Found new best accuracy
+Epoch 2/30
+100%|██████████████████████████████████████████████████████████████| 391/391 [02:22<00:00,  3.06it/s, loss=0.973]
+- Train metrics: loss: 0.967 ; accuracy: 0.555
+- Eval metrics : loss: 0.000 ; accuracy: 0.614
+Checkpoint Directory exists! 
+- Found new best accuracy
+Epoch 3/30
+100%|██████████████████████████████████████████████████████████████| 391/391 [02:22<00:00,  3.10it/s, loss=0.963]
+- Train metrics: loss: 0.961 ; accuracy: 0.586
+- Eval metrics : loss: 0.000 ; accuracy: 0.667
+Checkpoint Directory exists! 
+- Found new best accuracy
+Epoch 4/30
+100%|██████████████████████████████████████████████████████████████| 391/391 [02:22<00:00,  3.06it/s, loss=0.958]
+- Train metrics: loss: 0.967 ; accuracy: 0.607
+- Eval metrics : loss: 0.000 ; accuracy: 0.681
+Checkpoint Directory exists! 
+- Found new best accuracy
+Epoch 5/30
+100%|██████████████████████████████████████████████████████████████| 391/391 [02:22<00:00,  3.05it/s, loss=0.954]
+- Train metrics: loss: 0.964 ; accuracy: 0.598
+- Eval metrics : loss: 0.000 ; accuracy: 0.715
+Checkpoint Directory exists! 
+- Found new best accuracy
+Epoch 6/30
+100%|██████████████████████████████████████████████████████████████| 391/391 [02:23<00:00,  3.05it/s, loss=0.951]
+- Train metrics: loss: 0.942 ; accuracy: 0.705
+- Eval metrics : loss: 0.000 ; accuracy: 0.710
+Checkpoint Directory exists! 
+Epoch 7/30
+100%|██████████████████████████████████████████████████████████████| 391/391 [02:23<00:00,  2.81it/s, loss=0.947]
+- Train metrics: loss: 0.950 ; accuracy: 0.680
+- Eval metrics : loss: 0.000 ; accuracy: 0.719
+Checkpoint Directory exists! 
+- Found new best accuracy
+
+
+
 
 
 # knowledge-distillation-pytorch
