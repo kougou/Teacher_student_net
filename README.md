@@ -1,9 +1,9 @@
 ## TO-DO (Dec 24):
-<del>
+
 1) Download from here (teacher network): Box folder (https://stanford.app.box.com/s/5lwrieh9g1upju0iz9ru93m9d7uo3sox)
-2) Download CIFAR-10 Dataset from here: https://www.cs.toronto.edu/~kriz/cifar.html
+<del>2) Download CIFAR-10 Dataset from here: https://www.cs.toronto.edu/~kriz/cifar.html</del>
 3) Run the Code
-</del>
+
 
 
 
