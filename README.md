@@ -1,4 +1,4 @@
-## Andy: Update (Dec 29):
+## Update (Dec 29):
 - Here is the output of the distill of the resnet to 5-layers CNN: 
 100%|█████████████████████████████| 391/391 [01:30<00:00,  4.81it/s, loss=0.928]
 - Train metrics: loss: 0.949 ; accuracy: 0.816
