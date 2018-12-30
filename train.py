@@ -16,6 +16,7 @@ from torch.autograd import Variable
 from tqdm import tqdm
 
 import utils
+import model.net2 as net2
 import model.net as net
 import model.data_loader as data_loader
 import model.resnet as resnet
@@ -124,9 +125,9 @@ def train_and_evaluate(model, train_dataloader, val_dataloader, optimizer,
         scheduler = StepLR(optimizer, step_size=100, gamma=0.2)
 
     for epoch in range(params.num_epochs):
-     
+
         scheduler.step()
-     
+
         # Run one epoch
         logging.info("Epoch {}/{}".format(epoch + 1, params.num_epochs))
 
@@ -134,7 +135,7 @@ def train_and_evaluate(model, train_dataloader, val_dataloader, optimizer,
         train(model, optimizer, loss_fn, train_dataloader, metrics, params)
 
         # Evaluate for one epoch on validation set
-        val_metrics = evaluate(model, loss_fn, val_dataloader, metrics, params)        
+        val_metrics = evaluate(model, loss_fn, val_dataloader, metrics, params)
 
         val_acc = val_metrics['accuracy']
         is_best = val_acc>=best_val_acc
@@ -209,6 +210,7 @@ def train_kd(model, teacher_outputs, optimizer, loss_fn_kd, dataloader, metrics,
             train_batch, labels_batch = Variable(train_batch), Variable(labels_batch)
 
             # compute model output, fetch teacher output, and compute KD loss
+            #import pdb; pdb.set_trace()
             output_batch = model(train_batch)
 
             # get one batch output from teacher_outputs list
@@ -267,7 +269,7 @@ def train_and_evaluate_kd(model, teacher_model, train_dataloader, val_dataloader
         utils.load_checkpoint(restore_path, model, optimizer)
 
     best_val_acc = 0.0
-    
+
     # Tensorboard logger setup
     # board_logger = utils.Board_Logger(os.path.join(model_dir, 'board_logs'))
 
@@ -282,8 +284,8 @@ def train_and_evaluate_kd(model, teacher_model, train_dataloader, val_dataloader
     if params.model_version == "resnet18_distill":
         scheduler = StepLR(optimizer, step_size=150, gamma=0.1)
     # for cnn models, num_epoch is always < 100, so it's intentionally not using scheduler here
-    elif params.model_version == "cnn_distill": 
-        scheduler = StepLR(optimizer, step_size=100, gamma=0.2) 
+    elif params.model_version == "cnn_distill":
+        scheduler = StepLR(optimizer, step_size=100, gamma=0.2)
 
     for epoch in range(params.num_epochs):
 
@@ -366,7 +368,7 @@ if __name__ == '__main__':
         train_dl = data_loader.fetch_subset_dataloader('train', params)
     else:
         train_dl = data_loader.fetch_dataloader('train', params)
-    
+
     dev_dl = data_loader.fetch_dataloader('dev', params)
 
     logging.info("- done.")
@@ -376,15 +378,21 @@ if __name__ == '__main__':
        nn.DataParallel module to correctly load the model parameters
     """
     if "distill" in params.model_version:
-
         # train a 5-layer CNN or a 18-layer ResNet with knowledge distillation
+        # if params.model_version == "cnn_distill":
+        #     model = net.Net(params).cuda() if params.cuda else net.Net(params)
+        #     optimizer = optim.Adam(model.parameters(), lr=params.learning_rate)
+        #     # fetch loss function and metrics definition in model files
+        #     loss_fn_kd = net.loss_fn_kd
+        #     metrics = net.metrics
+        # train a 3-layer CNN or a 18-layer ResNet with knowledge distillation
         if params.model_version == "cnn_distill":
-            model = net.Net(params).cuda() if params.cuda else net.Net(params)
+            model = net2.Net2(params).cuda() if params.cuda else net2.Net2(params)
             optimizer = optim.Adam(model.parameters(), lr=params.learning_rate)
             # fetch loss function and metrics definition in model files
             loss_fn_kd = net.loss_fn_kd
             metrics = net.metrics
-        
+
         elif params.model_version == 'resnet18_distill':
             model = resnet.ResNet18().cuda() if params.cuda else resnet.ResNet18()
             optimizer = optim.SGD(model.parameters(), lr=params.learning_rate,
