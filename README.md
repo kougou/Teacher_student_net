@@ -4,7 +4,7 @@
 - Train metrics: loss: 0.949 ; accuracy: 0.816
 - Eval metrics : loss: 0.000 ; accuracy: 0.803
 
-I modified the code (please refer to the three-layers-cnn branch that I created, and I got the following output:
+- I modified the code (please refer to the three-layers-cnn branch that I created, and I got the following output:
 100%|##########| 391/391 [00:03<00:00, 103.70it/s, loss=0.949]
 - Train metrics: loss: 0.955 ; accuracy: 0.701
 - Eval metrics : loss: 0.000 ; accuracy: 0.708
