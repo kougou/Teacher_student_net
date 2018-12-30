@@ -1,3 +1,15 @@
+## Andy: Update (Dec 29):
+- Here is the output of the distill of the resnet to 5-layers CNN: 
+100%|█████████████████████████████| 391/391 [01:30<00:00,  4.81it/s, loss=0.928]
+- Train metrics: loss: 0.949 ; accuracy: 0.816
+- Eval metrics : loss: 0.000 ; accuracy: 0.803
+
+I modified the code (please refer to the three-layers-cnn branch that I created, and I got the following output:
+100%|##########| 391/391 [00:03<00:00, 103.70it/s, loss=0.949]
+- Train metrics: loss: 0.955 ; accuracy: 0.701
+- Eval metrics : loss: 0.000 ; accuracy: 0.708
+
+
 ## TO-DO (Dec 24):
 
 1) Download from here (teacher network): Box folder (https://stanford.app.box.com/s/5lwrieh9g1upju0iz9ru93m9d7uo3sox)
