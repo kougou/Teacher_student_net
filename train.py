@@ -432,9 +432,14 @@ if __name__ == '__main__':
             teacher_model = preresnet.PreResNet(depth=110, num_classes=10)
             teacher_checkpoint = 'experiments/base_preresnet110/best.pth.tar'
             teacher_model = nn.DataParallel(teacher_model).cuda()
-
+            #model
+        total_teacher_param = sum(p.numel() for p in teacher_model.parameters())
+        total_student_param = sum(p.numel() for p in model.parameters())
+        print ('teacher param {}'.format(total_teacher_param))
+        print ('student param {}'.format(total_student_param))
         utils.load_checkpoint(teacher_checkpoint, teacher_model)
-
+        import os
+        os.exit(0)
         # Train the model with KD
         logging.info("Experiment - model version: {}".format(params.model_version))
         logging.info("Starting training for {} epoch(s)".format(params.num_epochs))

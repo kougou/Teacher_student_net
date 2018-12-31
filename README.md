@@ -1,3 +1,10 @@
+## Update (Dec 30):
+- teacher param      11,173,962  (call this t)
+- CIFAR-10 Data set:     50,000  (call this n)
+- student param          58,698  (call thsi s)
+- t >> n
+- s ~= n
+
 ## Update (Dec 29):
 - Here is the output of the distill of the resnet to 5-layers CNN:
 100%|█████████████████████████████| 391/391 [01:30<00:00,  4.81it/s, loss=0.928]
@@ -180,3 +187,4 @@ Romero, A., Ballas, N., Kahou, S. E., Chassang, A., Gatta, C., & Bengio, Y. (201
 https://github.com/cs230-stanford/cs230-stanford.github.io
 
 https://github.com/bearpaw/pytorch-classification
+

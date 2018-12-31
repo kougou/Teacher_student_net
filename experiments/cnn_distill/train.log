@@ -236,3 +236,161 @@
 2018-03-10 07:22:46,567:INFO: Epoch 30/30
 2018-03-10 07:23:44,333:INFO: - Train metrics: accuracy: 0.830 ; loss: 0.445
 2018-03-10 07:23:45,156:INFO: - Eval metrics : accuracy: 0.838 ; loss: 0.000
+2018-12-24 10:38:34,301:INFO: Loading the datasets...
+2018-12-24 10:39:43,282:INFO: - done.
+2018-12-24 10:44:23,066:INFO: Loading the datasets...
+2018-12-24 10:44:28,724:INFO: - done.
+2018-12-24 10:44:29,029:INFO: Experiment - model version: cnn_distill
+2018-12-24 10:44:29,030:INFO: Starting training for 30 epoch(s)
+2018-12-24 10:44:29,030:INFO: First, loading the teacher model and computing its outputs...
+2018-12-24 11:19:56,634:INFO: - Finished computing teacher outputs after 2128.0 secs..
+2018-12-24 11:19:56,652:INFO: Epoch 1/30
+2018-12-24 11:22:20,239:INFO: - Train metrics: loss: 1.014 ; accuracy: 0.332
+2018-12-24 11:22:29,646:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.483
+2018-12-24 11:22:29,702:INFO: - Found new best accuracy
+2018-12-24 11:22:29,703:INFO: Epoch 2/30
+2018-12-24 11:24:52,361:INFO: - Train metrics: loss: 0.967 ; accuracy: 0.555
+2018-12-24 11:25:01,887:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.614
+2018-12-24 11:25:01,963:INFO: - Found new best accuracy
+2018-12-24 11:25:01,964:INFO: Epoch 3/30
+2018-12-24 11:27:24,930:INFO: - Train metrics: loss: 0.961 ; accuracy: 0.586
+2018-12-24 11:27:34,438:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.667
+2018-12-24 11:27:34,484:INFO: - Found new best accuracy
+2018-12-24 11:27:34,485:INFO: Epoch 4/30
+2018-12-24 11:29:57,080:INFO: - Train metrics: loss: 0.967 ; accuracy: 0.607
+2018-12-24 11:30:06,766:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.681
+2018-12-24 11:30:06,812:INFO: - Found new best accuracy
+2018-12-24 11:30:06,813:INFO: Epoch 5/30
+2018-12-24 11:32:29,687:INFO: - Train metrics: loss: 0.964 ; accuracy: 0.598
+2018-12-24 11:32:39,370:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.715
+2018-12-24 11:32:39,414:INFO: - Found new best accuracy
+2018-12-24 11:32:39,415:INFO: Epoch 6/30
+2018-12-24 11:35:03,300:INFO: - Train metrics: loss: 0.942 ; accuracy: 0.705
+2018-12-24 11:35:12,953:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.710
+2018-12-24 11:35:12,999:INFO: Epoch 7/30
+2018-12-24 11:37:36,795:INFO: - Train metrics: loss: 0.950 ; accuracy: 0.680
+2018-12-24 11:37:46,349:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.719
+2018-12-24 11:37:46,424:INFO: - Found new best accuracy
+2018-12-24 11:37:46,426:INFO: Epoch 8/30
+2018-12-24 11:40:11,234:INFO: - Train metrics: loss: 0.952 ; accuracy: 0.668
+2018-12-24 11:40:20,613:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.740
+2018-12-24 11:40:20,706:INFO: - Found new best accuracy
+2018-12-24 11:40:20,708:INFO: Epoch 9/30
+2018-12-24 11:42:44,421:INFO: - Train metrics: loss: 0.949 ; accuracy: 0.689
+2018-12-24 11:42:54,110:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.727
+2018-12-24 11:42:54,144:INFO: Epoch 10/30
+2018-12-24 11:45:19,182:INFO: - Train metrics: loss: 0.940 ; accuracy: 0.691
+2018-12-24 11:45:29,124:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.746
+2018-12-24 11:45:29,205:INFO: - Found new best accuracy
+2018-12-24 11:45:29,207:INFO: Epoch 11/30
+2018-12-24 11:47:54,898:INFO: - Train metrics: loss: 0.946 ; accuracy: 0.715
+2018-12-24 11:48:04,542:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.754
+2018-12-24 11:48:04,587:INFO: - Found new best accuracy
+2018-12-24 11:48:04,589:INFO: Epoch 12/30
+2018-12-24 11:50:28,151:INFO: - Train metrics: loss: 0.930 ; accuracy: 0.742
+2018-12-24 11:50:37,585:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.760
+2018-12-24 11:50:37,659:INFO: - Found new best accuracy
+2018-12-24 11:50:37,660:INFO: Epoch 13/30
+2018-12-24 11:53:01,744:INFO: - Train metrics: loss: 0.941 ; accuracy: 0.732
+2018-12-24 11:53:11,491:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.768
+2018-12-24 11:53:11,563:INFO: - Found new best accuracy
+2018-12-24 11:53:11,564:INFO: Epoch 14/30
+2018-12-24 11:55:35,348:INFO: - Train metrics: loss: 0.942 ; accuracy: 0.746
+2018-12-24 11:55:45,154:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.761
+2018-12-24 11:55:45,185:INFO: Epoch 15/30
+2018-12-24 11:58:11,170:INFO: - Train metrics: loss: 0.943 ; accuracy: 0.766
+2018-12-24 11:58:20,949:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.773
+2018-12-24 11:58:21,022:INFO: - Found new best accuracy
+2018-12-24 11:58:21,023:INFO: Epoch 16/30
+2018-12-24 12:00:45,134:INFO: - Train metrics: loss: 0.930 ; accuracy: 0.768
+2018-12-24 12:00:54,831:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.787
+2018-12-24 12:00:54,911:INFO: - Found new best accuracy
+2018-12-24 12:00:54,913:INFO: Epoch 17/30
+2018-12-24 12:03:18,709:INFO: - Train metrics: loss: 0.930 ; accuracy: 0.758
+2018-12-24 12:03:28,327:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.771
+2018-12-24 12:03:28,360:INFO: Epoch 18/30
+2018-12-24 12:05:53,440:INFO: - Train metrics: loss: 0.934 ; accuracy: 0.750
+2018-12-24 12:06:03,203:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.789
+2018-12-24 12:06:03,288:INFO: - Found new best accuracy
+2018-12-24 12:06:03,291:INFO: Epoch 19/30
+2018-12-24 12:08:28,690:INFO: - Train metrics: loss: 0.935 ; accuracy: 0.777
+2018-12-24 12:08:38,376:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.790
+2018-12-24 12:08:38,454:INFO: - Found new best accuracy
+2018-12-24 12:08:38,455:INFO: Epoch 20/30
+2018-12-24 12:11:06,170:INFO: - Train metrics: loss: 0.937 ; accuracy: 0.773
+2018-12-24 12:11:16,390:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.790
+2018-12-24 12:11:16,468:INFO: - Found new best accuracy
+2018-12-24 12:11:16,469:INFO: Epoch 21/30
+2018-12-24 12:13:42,102:INFO: - Train metrics: loss: 0.930 ; accuracy: 0.756
+2018-12-24 12:13:51,907:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.788
+2018-12-24 12:13:51,939:INFO: Epoch 22/30
+2018-12-24 12:16:17,809:INFO: - Train metrics: loss: 0.938 ; accuracy: 0.779
+2018-12-24 12:16:27,493:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.787
+2018-12-24 12:16:27,520:INFO: Epoch 23/30
+2018-12-24 12:18:52,649:INFO: - Train metrics: loss: 0.933 ; accuracy: 0.754
+2018-12-24 12:19:02,286:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.784
+2018-12-24 12:19:02,311:INFO: Epoch 24/30
+2018-12-24 12:21:39,025:INFO: - Train metrics: loss: 0.939 ; accuracy: 0.762
+2018-12-24 12:21:51,104:INFO: - Eval metrics : loss: 0.000 ; accuracy: 0.792
+2018-12-24 12:21:51,172:INFO: - Found new best accuracy
+2018-12-24 12:21:51,174:INFO: Epoch 25/30
+2018-12-29 09:46:15,284:INFO: Loading the datasets...
+2018-12-29 09:46:22,914:INFO: - done.
+2018-12-29 09:47:38,939:INFO: Loading the datasets...
+2018-12-29 09:47:44,134:INFO: - done.
+2018-12-29 09:48:09,354:INFO: Loading the datasets...
+2018-12-29 09:48:13,909:INFO: - done.
+2018-12-29 09:48:14,387:INFO: Experiment - model version: cnn_distill
+2018-12-29 09:48:14,390:INFO: Starting training for 30 epoch(s)
+2018-12-29 09:48:14,391:INFO: First, loading the teacher model and computing its outputs...
+2018-12-29 09:56:05,032:INFO: Loading the datasets...
+2018-12-29 09:56:09,111:INFO: - done.
+2018-12-29 09:56:09,463:INFO: Experiment - model version: cnn_distill
+2018-12-29 09:56:09,463:INFO: Starting training for 30 epoch(s)
+2018-12-29 09:56:09,464:INFO: First, loading the teacher model and computing its outputs...
+2018-12-29 10:13:12,411:INFO: - Finished computing teacher outputs after 1499.0 secs..
+2018-12-29 10:13:12,416:INFO: Epoch 1/30
+2018-12-29 10:23:47,604:INFO: Loading the datasets...
+2018-12-29 10:23:52,659:INFO: - done.
+2018-12-29 10:23:53,068:INFO: Experiment - model version: cnn_distill
+2018-12-29 10:23:53,069:INFO: Starting training for 30 epoch(s)
+2018-12-29 10:23:53,069:INFO: First, loading the teacher model and computing its outputs...
+2018-12-29 10:47:07,654:INFO: - Finished computing teacher outputs after 1395.0 secs..
+2018-12-29 10:47:07,657:INFO: Epoch 1/30
+2018-12-29 14:18:56,032:INFO: Loading the datasets...
+2018-12-29 14:19:00,498:INFO: - done.
+2018-12-29 14:19:00,822:INFO: Experiment - model version: cnn_distill
+2018-12-29 14:19:00,823:INFO: Starting training for 30 epoch(s)
+2018-12-29 14:19:00,823:INFO: First, loading the teacher model and computing its outputs...
+2018-12-29 14:43:53,366:INFO: - Finished computing teacher outputs after 1493.0 secs..
+2018-12-29 14:43:53,376:INFO: Epoch 1/30
+2018-12-29 14:47:30,617:INFO: Loading the datasets...
+2018-12-29 14:47:34,463:INFO: - done.
+2018-12-29 14:47:34,743:INFO: Experiment - model version: cnn_distill
+2018-12-29 14:47:34,744:INFO: Starting training for 30 epoch(s)
+2018-12-29 14:47:34,744:INFO: First, loading the teacher model and computing its outputs...
+2018-12-29 15:08:52,166:INFO: - Finished computing teacher outputs after 1278.0 secs..
+2018-12-29 15:08:52,175:INFO: Epoch 1/30
+2018-12-29 15:13:50,165:INFO: Loading the datasets...
+2018-12-29 15:13:54,504:INFO: - done.
+2018-12-29 15:13:54,824:INFO: Experiment - model version: cnn_distill
+2018-12-29 15:13:54,824:INFO: Starting training for 30 epoch(s)
+2018-12-29 15:13:54,824:INFO: First, loading the teacher model and computing its outputs...
+2018-12-29 15:33:45,135:INFO: - Finished computing teacher outputs after 1191.0 secs..
+2018-12-29 15:33:45,140:INFO: Epoch 1/30
+2018-12-29 15:47:02,748:INFO: Loading the datasets...
+2018-12-29 15:47:06,791:INFO: - done.
+2018-12-29 15:47:07,100:INFO: Experiment - model version: cnn_distill
+2018-12-29 15:47:07,101:INFO: Starting training for 30 epoch(s)
+2018-12-29 15:47:07,101:INFO: First, loading the teacher model and computing its outputs...
+2018-12-29 16:04:10,806:INFO: Loading the datasets...
+2018-12-29 16:04:18,138:INFO: - done.
+2018-12-29 16:04:18,590:INFO: Experiment - model version: cnn_distill
+2018-12-29 16:04:18,590:INFO: Starting training for 30 epoch(s)
+2018-12-29 16:04:18,590:INFO: First, loading the teacher model and computing its outputs...
+2018-12-29 16:34:15,795:INFO: - Finished computing teacher outputs after 1798.0 secs..
+2018-12-29 16:34:15,815:INFO: Epoch 1/30
+2018-12-30 18:01:59,316:INFO: Loading the datasets...
+2018-12-30 18:02:05,227:INFO: - done.
+2018-12-30 18:08:22,084:INFO: Loading the datasets...
+2018-12-30 18:08:28,207:INFO: - done.
