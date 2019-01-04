@@ -433,8 +433,8 @@ if __name__ == '__main__':
             teacher_checkpoint = 'experiments/base_preresnet110/best.pth.tar'
             teacher_model = nn.DataParallel(teacher_model).cuda()
             #model
-        total_teacher_param = sum(p.numel() for p in teacher_model.parameters())
-        total_student_param = sum(p.numel() for p in model.parameters())
+        total_teacher_param = sum(p.numel() for p in teacher_model.parameters() if p.requires_grad)
+        total_student_param = sum(p.numel() for p in model.parameters()         if p.requires_grad)
         print ('teacher param {}'.format(total_teacher_param))
         print ('student param {}'.format(total_student_param))
         utils.load_checkpoint(teacher_checkpoint, teacher_model)
