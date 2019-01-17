@@ -35,6 +35,8 @@ parser.add_argument('--model_dir', default='experiments/base_model',
                     help="Directory containing params.json")
 parser.add_argument('--teacher', default='resnet1',
                     help="Directory containing params.json")
+parser.add_argument('--layer', default='3',
+                    help="Directory containing params.json")
 parser.add_argument('--restore_file', default=None,
                     help="Optional, name of the file in --model_dir \
                     containing weights to reload before training")  # 'best' or 'train'
@@ -385,18 +387,19 @@ if __name__ == '__main__':
     if "distill" in params.model_version:
         # train a 5-layer CNN or a 18-layer ResNet with knowledge distillation
         # if params.model_version == "cnn_distill":
-        #     model = net.Net(params).cuda() if params.cuda else net.Net(params)
-        #     optimizer = optim.Adam(model.parameters(), lr=params.learning_rate)
-        #     # fetch loss function and metrics definition in model files
-        #     loss_fn_kd = net.loss_fn_kd
-        #     metrics = net.metrics
         # train a 3-layer CNN or a 18-layer ResNet with knowledge distillation
         if params.model_version == "cnn_distill":
-            model = net2.Net2(params).cuda() if params.cuda else net2.Net2(params)
-            optimizer = optim.Adam(model.parameters(), lr=params.learning_rate)
-            # fetch loss function and metrics definition in model files
-            loss_fn_kd = net.loss_fn_kd
-            metrics = net.metrics
+            if args.layer == '3':
+                model = net2.Net2(params).cuda() if params.cuda else net2.Net2(params)
+                optimizer = optim.Adam(model.parameters(), lr=params.learning_rate)
+                # fetch loss function and metrics definition in model files
+                loss_fn_kd = net.loss_fn_kd
+                metrics = net.metrics
+            else:
+                model = net.Net(params).cuda() if params.cuda else net.Net(params)
+                optimizer = optim.Adam(model.parameters(), lr=params.learning_rate)
+                loss_fn_kd = net.loss_fn_kd
+                metrics = net.metrics
 
         elif params.model_version == 'resnet18_distill':
             model = resnet.ResNet18().cuda() if params.cuda else resnet.ResNet18()
@@ -416,32 +419,65 @@ if __name__ == '__main__':
             teacher_model = resnet.ResNet18()
             teacher_checkpoint = 'experiments/base_resnet18/best.pth.tar'
             teacher_model = teacher_model.cuda() if params.cuda else teacher_model
-            utils.load_checkpoint(teacher_checkpoint, teacher_model)
+            #utils.load_checkpoint(teacher_checkpoint, teacher_model)
 
         elif args.teacher == 'resnet2':
             teacher_model = resnet.ResNet2()
             teacher_model = teacher_model.cuda() if params.cuda else teacher_model
-            teacher_model.load(torch.load('Res2/checkpoint/ckpt.t7')['net'])
+            teacher_checkpoint = 'Res2/checkpoint/ckpt.t7'
+            #utils.load_checkpoint(teacher_checkpoint, teacher_model)
+            #teacher_model.load_state_dict(torch.load('Res2/checkpoint/ckpt.t7')['net'])
 
         elif args.teacher == 'resnet3':
             teacher_model = resnet.ResNet3()
             teacher_model = teacher_model.cuda() if params.cuda else teacher_model
-            teacher_model.load(torch.load('Res3/checkpoint/ckpt.t7')['net'])
+            teacher_checkpoint = 'Res3/checkpoint/ckpt.t7'
+            #utils.load_checkpoint(teacher_checkpoint, teacher_model)
+        elif args.teacher == 'resnet4':
+            teacher_model = resnet.ResNet_4()
+            teacher_model = teacher_model.cuda() if params.cuda else teacher_model
+            teacher_checkpoint = 'Res4/checkpoint/ckpt.t7'
+            utils.load_checkpoint(teacher_checkpoint, teacher_model)
+        elif args.teacher == 'resnet5':
+            teacher_model = resnet.ResNet_5()
+            teacher_model = teacher_model.cuda() if params.cuda else teacher_model
+            teacher_checkpoint = 'Res5/checkpoint/ckpt.t7'
+            #utils.load_checkpoint(teacher_checkpoint, teacher_model)
+            #teacher_model.load_state_dict(torch.load('Res3/checkpoint/ckpt.t7')['net'])
 
         elif args.teacher == 'cnn1':
-            teacher_model = resnet.ResNet3()
+            teacher_model = cnn1.Net1()
             teacher_model = teacher_model.cuda() if params.cuda else teacher_model
-            teacher_model.load(torch.load('Net1/checkpoint/ckpt.t7')['net'])
+            teacher_checkpoint = 'Net1/checkpoint/ckpt.t7'
+            #utils.load_checkpoint(teacher_checkpoint, teacher_model)
+            #teacher_model.load_state_dict(torch.load('Net1/checkpoint/ckpt.t7')['net'])
 
         elif args.teacher == 'cnn2':
-            teacher_model = resnet.ResNet3()
+            teacher_model = cnn2.Net2()
             teacher_model = teacher_model.cuda() if params.cuda else teacher_model
-            teacher_model.load(torch.load('Net2/checkpoint/ckpt.t7')['net'])
+            teacher_checkpoint = 'Net2/checkpoint/ckpt.t7'
+            #utils.load_checkpoint(teacher_checkpoint, teacher_model)
+
+            #teacher_model.load_state_dict(torch.load('Net2/checkpoint/ckpt.t7')['net'])
 
         elif args.teacher == 'cnn3':
-            teacher_model = resnet.ResNet3()
+            teacher_model = cnn3.Net3()
             teacher_model = teacher_model.cuda() if params.cuda else teacher_model
-            teacher_model.load(torch.load('Net3/checkpoint/ckpt.t7')['net'])
+            teacher_checkpoint = 'Net3/checkpoint/ckpt.t7'
+            #utils.load_checkpoint(teacher_checkpoint, teacher_model)
+
+        elif args.teacher == 'cnn4':
+            teacher_model = cnn1.Net4()
+            teacher_model = teacher_model.cuda() if params.cuda else teacher_model
+            teacher_checkpoint = 'Net4/checkpoint/ckpt.t7'
+            #utils.load_checkpoint(teacher_checkpoint, teacher_model)
+
+        elif args.teacher == 'cnn5':
+            teacher_model = cnn1.Net5()
+            teacher_model = teacher_model.cuda() if params.cuda else teacher_model
+            teacher_checkpoint = 'Net5/checkpoint/ckpt.t7'
+            #utils.load_checkpoint(teacher_checkpoint, teacher_model)
+            #teacher_model.load_state_dict(torch.load('Net3/checkpoint/ckpt.t7')['net'])
         # if params.teacher == "resnet18":
         #     teacher_model = resnet.ResNet18()
         #     teacher_checkpoint = 'experiments/base_resnet18/best.pth.tar'
@@ -472,9 +508,14 @@ if __name__ == '__main__':
         total_student_param = sum(p.numel() for p in model.parameters()         if p.requires_grad)
         print ('teacher param {}'.format(total_teacher_param))
         print ('student param {}'.format(total_student_param))
+        if args.teacher == 'resnet1':
+            utils.load_checkpoint2(teacher_checkpoint, teacher_model)
+        else:
+            utils.load_checkpoint(teacher_checkpoint, teacher_model)
+
 
         import os
-        os.exit(0)
+        #os.exit(0)
         # Train the model with KD
         logging.info("Experiment - model version: {}".format(params.model_version))
         logging.info("Starting training for {} epoch(s)".format(params.num_epochs))

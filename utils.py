@@ -163,6 +163,68 @@ def load_checkpoint(checkpoint, model, optimizer=None):
     return checkpoint
 
 
+def load_checkpoint2(checkpoint, model, optimizer=None):
+    """Loads model parameters (state_dict) from file_path. If optimizer is provided, loads state_dict of
+    optimizer assuming it is present in checkpoint.
+
+    Args:
+        checkpoint: (string) filename which needs to be loaded
+        model: (torch.nn.Module) model for which the parameters are loaded
+        optimizer: (torch.optim) optional: resume optimizer from checkpoint
+    """
+    if not os.path.exists(checkpoint):
+        raise("File doesn't exist {}".format(checkpoint))
+    if torch.cuda.is_available():
+        checkpoint = torch.load(checkpoint)
+    else:
+        # this helps avoid errors when loading single-GPU-trained weights onto CPU-model
+        checkpoint = torch.load(checkpoint, map_location=lambda storage, loc: storage)
+
+    model.load_state_dict(checkpoint['state_dict'])
+
+    if optimizer:
+        optimizer.load_state_dict(checkpoint['optim_dict'])
+
+    return checkpoint
+
+def load_checkpoint(checkpoint, model, optimizer=None):
+    """Loads model parameters (state_dict) from file_path. If optimizer is provided, loads state_dict of
+    optimizer assuming it is present in checkpoint.
+
+    Args:
+        checkpoint: (string) filename which needs to be loaded
+        model: (torch.nn.Module) model for which the parameters are loaded
+        optimizer: (torch.optim) optional: resume optimizer from checkpoint
+    """
+    print checkpoint
+    if not os.path.exists(checkpoint):
+        raise("File doesn't exist {}".format(checkpoint))
+    if torch.cuda.is_available():
+        checkpoint = torch.load(checkpoint)
+    else:
+        # this helps avoid errors when loading single-GPU-trained weights onto CPU-model
+        checkpoint = torch.load(checkpoint, map_location=lambda storage, loc: storage)
+
+    from collections import OrderedDict
+    d = OrderedDict()
+    ck = checkpoint['net']
+    for key, val in ck.items():
+        ls = key.split('.')
+        res = ''
+        ls = ls[1:]
+        for s in ls:
+            res += s + '.'
+        key_ =res[:-1]
+        print key_
+        d[key_] = val
+    model.load_state_dict(d)
+
+    if optimizer:
+        optimizer.load_state_dict(checkpoint['optim_dict'])
+
+    return checkpoint
+
+
 class Board_Logger(object):
     """Tensorboard log utility"""
     
