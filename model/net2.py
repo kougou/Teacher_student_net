@@ -32,7 +32,7 @@ class Net2(nn.Module):
         """
         super(Net2, self).__init__()
         self.num_channels = params.num_channels
-
+        self.num_channels = 28
         # each of the convolution layers below have the arguments (input_channels, output_channels, filter_size,
         # stride, padding). We also include batch normalisation layers that help stabilise training.
         # For more details on how to use these layers, check out the documentation.

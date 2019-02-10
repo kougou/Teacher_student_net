@@ -1,0 +1,10 @@
+==> Preparing data..
+Files already downloaded and verified
+Files already downloaded and verified
+==> Building model..
+Traceback (most recent call last):
+  File "main2.py", line 65, in <module>
+    total_param = sum(p.numel() for p in net().parameters() if p.requires_grad)
+  File "/home/dsu/anaconda2/lib/python2.7/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+TypeError: forward() takes exactly 2 arguments (1 given)
